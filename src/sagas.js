@@ -3,6 +3,8 @@ import { GET_SERVICE_FETCH, GET_SERVICE_SUCCESS } from "./actions";
 
 function serviceFetch() {
     //do the data fetching and return the services
+    const services =["service1","service2","service3","service4","service5"]
+    return services
 }
 
 function* workGetServiceFetch() {

@@ -1,9 +1,30 @@
-import React from 'react'
-import {createRoot} from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./styles/main.css";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+// import createSagaMiddleware from "redux-saga";
+import serviceReducer from "./serviceReducer";
+// import logger from "redux-logger";
+// import sagas from "./sagas";
+
+// let sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore({
+  reducer: {
+    services: serviceReducer,
+  }
+});
+
+// const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+// sagaMiddleware.run(sagas);
 
 const rootcontainer = document.getElementById("app-root");
 
 const root = createRoot(rootcontainer);
-root.render(<App/>);
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

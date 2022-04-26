@@ -10,5 +10,6 @@ module.exports = merge(common, {
     hot: true,
     compress: true,
   },
-  devtool: "inline-source-map",
+//   devtool: "inline-source-map",
+  devtool:"cheap-source-map",
 });
