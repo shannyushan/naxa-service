@@ -1,19 +1,30 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { GET_SERVICE_FETCH, GET_SERVICE_SUCCESS } from "./actions";
 
 function serviceFetch() {
     //do the data fetching and return the services
-    const services =["service1","service2","service3","service4","service5"]
-    return services
+    return fetch("https://admin.naxa.com.np/api/services", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+           return data.sort((a, b) => {
+            return a.service_order - b.service_order;
+          });
+        });
 }
 
 function* workGetServiceFetch() {
-  const services = yield call(serviceFetch);
-  yield put({ type: GET_SERVICE_SUCCESS, services });
+  const data = yield call(serviceFetch);
+  console.log(data,"from me");
+  yield put(getServiceSuccess(data));
 }
 
 function* sagas() {
-  yield takeEvery(GET_SERVICE_FETCH, workGetServiceFetch);
+  yield takeEvery('services/getServiceFetch', workGetServiceFetch);
 }
 
 export default sagas;

@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-
+import {useDispatch, useSelector} from "react-redux";
+import {getServiceFetch} from "./serviceReducer";
 function App() {
   const [isloading, setIsLoading] = useState(true);
 
+  const dispatch = useDispatch();
+  const services = useSelector(state=> state.services.services);
+
   useEffect(() => {
+    dispatch(getServiceFetch);
     setIsLoading(false);
+    console.log(services);
   });
+
+  if(isloading) return <div><h1>Loading!!!</h1></div>
+
   return (
     <div>
       <div className="topbar">
@@ -27,7 +36,11 @@ function App() {
           </p>
         </div>
       </header>
-      <main>{/* fetch data from api and map the data */}</main>
+      <main>{/* fetch data from api and map the data */}
+      {/* {services.map((index, service)=>(
+        <h1 key={index}>hello my guy</h1>
+      ))} */}
+      </main>
     </div>
   );
 }
