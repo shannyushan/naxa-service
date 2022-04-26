@@ -1,0 +1,28 @@
+{
+  "name": "naxa-service",
+  "version": "1.0.0",
+  "description": "naxa service page using redux saga",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shannyushan/naxa-service.git"
+  },
+  "author": "shannyushan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shannyushan/naxa-service/issues"
+  },
+  "homepage": "https://github.com/shannyushan/naxa-service#readme",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
