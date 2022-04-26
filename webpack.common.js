@@ -13,6 +13,7 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.(png|jpg|jpeg|svg)$/, use: ["file-loader"] },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
