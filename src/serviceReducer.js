@@ -6,15 +6,15 @@ export const serviceSlice = createSlice({
     services:[],
     isLoading:true,
   },
-  reducer:{
-    getServiceFetch: (state) =>{
+  reducers:{
+    getServiceFetch(state){
       state.isLoading=true;
     },
-    getServiceSuccess: (state, action) =>{
-      state.serices=action.payload;
-      isLoading=false;
+    getServiceSuccess(state, action){
+      state.services=action.payload;
+      state.isLoading=false;
     },
-    getServiceFail:(state)=>{
+    getServiceFail(state){
       state.isLoading=false;
     }
   }
@@ -24,15 +24,3 @@ export const serviceSlice = createSlice({
 export const {getServiceFetch, getServiceSuccess, getServiceFail} = serviceSlice.actions;
 
 export default serviceSlice.reducer;
-
-
-
-// const serviceReducer = (state = { services: [] }, action) => {
-//   switch (action.type) {
-//     case GET_SERVICE_SUCCESS:
-//       return { ...state, services: action.services };
-//     default:
-//       return state;
-//   }
-// };
-// export default serviceReducer;

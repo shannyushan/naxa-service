@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
+import {getServiceSuccess} from "./serviceReducer";
 
 function serviceFetch() {
     //do the data fetching and return the services
@@ -19,7 +20,6 @@ function serviceFetch() {
 
 function* workGetServiceFetch() {
   const data = yield call(serviceFetch);
-  console.log(data,"from me");
   yield put(getServiceSuccess(data));
 }
 
