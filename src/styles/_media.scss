@@ -10,15 +10,50 @@ $breakpoint-mobile: 576px;
   }
 }
 
+@media screen and(max-width: $breakpoint-tablet-sm){
+    .service-flexBox, .service-flexBox-reverse{
+        display: flex;
+        flex-direction: column!important;
+    }
+    .s-photo,.s-info{
+        width:100%;
+    }
+    .service-gridBox{
+        grid-template-columns: 1fr!important;
+    }
+    .service-container{
+
+        .g-reverse{
+            grid-template-columns: 1fr!important;
+            grid-template-areas:
+                                "s-photos"
+                                "s-info"!important;
+        }
+    }
+}
 @media screen and (min-width: $breakpoint-tablet-sm) {
   .container {
     max-width: 720px;
   }
+ 
 }
 @media screen and (min-width: $breakpoint-tablet) {
   .container {
     max-width: 960px;
   }
+  .service-flexBox{
+    display: flex;
+    flex-direction: row!important;
+}
+.service-flexBox-reverse{
+    display: flex;
+    flex-direction: row-reverse!important;
+    
+}
+.s-photo,.s-info{
+    width:50%;
+}
+
 }
 
 @media screen and (min-width: $breakpoint-laptop) {

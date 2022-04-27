@@ -35,7 +35,7 @@ body {
 .banner {
   width: 100%;
   min-height: 580px;
-  background-image: url("./../assets/banner.jpg");
+  // background-image: url("./../assets/banner.jpg");
 }
 
 nav {
@@ -138,51 +138,65 @@ main {
   .service-container {
     padding: 130px 0;
 
-    .g-reverse {
-      grid-template-areas: "s-info s-photo" !important;
+    // .g-service{
+
+    // }
+
+    // .service-gridBox {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    //   grid-template-areas: "s-photo s-info";
+    .service-flexBox {
+      display: flex;
+      flex-direction: row;
     }
-
-    .service-gridBox {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: "s-photo s-info";
-
-      .s-photo {
-        grid-area: s-photo;
-        img {
-          max-width: 50%;
-          height: 100%;
-          margin: 0 auto;
-        }
-      }
-      .s-info {
-        grid-area: s-info;
-      }
-      .service-title {
-        font-size: 2.125rem;
-        font-weight: 600;
-        color: #333132;
-        margin-bottom: 30px;
-      }
-      .service-desc1 {
-        font-size: 1rem;
-        line-height: 1.7;
-        color: #333132;
-        font-weight: 400;
-      }
-      .service-icon {
-        max-width: 65px;
-        height: 65px;
-      }
-      .card-text {
-        margin: 40px 0 50px;
-        background-color: #e9ebff;
-        padding: 25px;
-        font-weight: 400;
-        color: #7c7c7c;
-        line-height: 1.6;
+    .s-photo {
+      display: flex;
+      grid-area: s-photo;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      img {
+        min-height: 200px;
+        max-width: 50%;
+        height: 100%;
+        margin: 0 auto;
       }
     }
+    .s-info {
+      grid-area: s-info;
+    }
+    .service-title {
+      font-size: 2.125rem;
+      font-weight: 600;
+      color: #333132;
+      margin-bottom: 30px;
+    }
+    .service-desc1 {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #333132;
+      font-weight: 400;
+    }
+    .service-icon {
+      max-width: 65px;
+      height: 65px;
+    }
+    .card-text {
+      margin: 40px 0 50px;
+      background-color: #e9ebff;
+      padding: 25px;
+      font-weight: 400;
+      color: #7c7c7c;
+      line-height: 1.6;
+    }
+    F .service-flexBox-reverse {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    // .g-reverse {
+    //   grid-template-areas: "s-info s-photo";
+    // }
   }
 }
 

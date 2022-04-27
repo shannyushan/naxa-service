@@ -4,6 +4,9 @@ import Navigation from "./components/Navigation";
 import { getServiceFetch } from "./serviceReducer";
 const parse =  require("html-react-parser");
 import serviceimg from "./assets/serviceicon.svg";
+import banner from "./assets/banner.jpg";
+
+
 function App() {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services.services);
@@ -38,7 +41,10 @@ function App() {
       {/* {navigation component} */}
       <Navigation/>
       <header>
-        <div className="banner"></div>
+        {/* <div className="banner" style={bac}></div> */}
+        <div className="banner" style={{position:"relative"}}>
+          <img src={banner} height="100%" style={{objectFit:"cover", position:"absolute", right:"0"}}/>
+        </div>
         <div className="container header-text">
           <div className="text-wrapper">
             <h2 className="heading2">SERVICES</h2>
@@ -73,11 +79,11 @@ function App() {
         <div className="flex-column service-container">
         {services.map((service, index) => (
           <div
-            className={index % 2 === 0 ? "service-gridBox" : "service-gridBox g-reverse"}
+            className={index % 2 === 0 ? "service-flexBox" : "service-flexBox-reverse"}
             key={index}
             id={service.id}
           >
-            <div className="flexbox s-photo">
+            <div className="s-photo">
               <img src={service.photo} alt={service.title} />
             </div>
             <div className="flex-column s-info">
