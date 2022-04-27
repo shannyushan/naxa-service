@@ -10,11 +10,10 @@ function App() {
     dispatch(getServiceFetch());
   }, [dispatch]);
 
-
-  const scrolltoContainer = (id)=>{
+  const scrolltoContainer = (id) => {
     const container = document.getElementById(id);
-    container.scrollIntoView({behavior:"smooth"});
-  }
+    container.scrollIntoView({ behavior: "smooth" });
+  };
 
   if (isLoading)
     return (
@@ -34,6 +33,27 @@ function App() {
         </span>
       </div>
       {/* {navigation component} */}
+      <div className="nav-bar flex-row space-between w100">
+          <img src="/logo.png" alt="Naxa Logo"/>
+          <nav className="navigation flex-row space-evenly">
+            <li className="flex">
+              <a href="#">Services</a>
+            </li>
+            <li as="li">
+              <a href="#">Portfolio</a>
+            </li>
+            <li as="li">
+              <a href="#">Company</a>
+            </li>
+            <li as="li">
+              <a href="#">{"Events & Media"}</a>
+            </li>
+            <li as="li">
+              <a href="#">Blogs</a>
+            </li>
+          </nav>
+          <button className="btnLetsTalk">Let's talk</button>
+        </div>
       <header>
         <div className="banner"></div>
         <div className="header-text">
@@ -54,7 +74,11 @@ function App() {
       <main>
         <div className="services-nav card">
           {services.map((service, index) => (
-            <span key={index} className="service-nav" onClick={(e)=>scrolltoContainer(service.id)}>
+            <span
+              key={index}
+              className="service-nav"
+              onClick={(e) => scrolltoContainer(service.id)}
+            >
               {service.title}
             </span>
           ))}
@@ -73,11 +97,31 @@ function App() {
               <img src={service.icon} alt="service icon" />
               <p>{service.title}</p>
               <div>{service.description1}</div>
-              <div>{service.description2}</div>
+              <div className="card card-text">{service.description2}</div>
             </div>
           </div>
         ))}
       </main>
+      <section className="letstalk card card-round">
+        <div class="collab-container flex-column">
+          <div>
+            <h2 className="text-white">Seeking Collaboration?</h2>
+          </div>
+          <div>
+            <p>
+              We constantly look forward to exploring ideas, collaborations, and
+              technical innovations. If you want to partner with us, we are just
+              an email away.
+            </p>
+          </div>
+          <a href="#">
+            <button type="button" class="">
+              <span>Let's Talk</span>
+              {/* {icon} */}
+            </button>
+          </a>
+        </div>
+      </section>
     </div>
   );
 }
