@@ -1,7 +1,9 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 let webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const isDevelopment = true;
 module.exports = {
   entry: "/src/index.js",
   output: {
@@ -9,7 +11,7 @@ module.exports = {
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".jsx", ".ts", ".js"],
+    extensions: [".jsx", ".ts", ".js", ".scss"],
   },
   module: {
     rules: [
@@ -23,12 +25,16 @@ module.exports = {
           loader: "babel-loader",
         },
       },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.s[ac]ss$/i, use: ["style-loader", "css-loader", "sass-loader"] },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? "[name].css" : "[name].[hash].css",
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
     }),
   ],
   mode: "development",
@@ -38,6 +44,6 @@ module.exports = {
     hot: true,
     compress: true,
   },
-//   devtool: "inline-source-map",
-  devtool:"cheap-source-map",
+  //   devtool: "inline-source-map",
+  devtool: "cheap-source-map",
 };

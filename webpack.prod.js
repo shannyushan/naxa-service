@@ -14,5 +14,6 @@ module.exports = merge(common, {
       minSize: 10000,
       maxSize: 250000,
     },
+    
   },
 });
