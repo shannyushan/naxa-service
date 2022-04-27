@@ -1,7 +1,8 @@
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const path = require("path");
 const common = require("./webpack.common.js");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   output: {
@@ -9,7 +10,7 @@ module.exports = merge(common, {
     filename: "bundle.js",
   },
   mode: "production",
-  devtool:false,
+  devtool: false,
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
@@ -17,12 +18,28 @@ module.exports = merge(common, {
   },
   optimization: {
     splitChunks: {
-      minSize: 10000,
-      maxSize: 250000,
+      // minSize: 10000,
+      // maxSize: 250000,
+      cacheGroups: {
+        js: {
+          test: /\.js$/,
+          name: "commons",
+          chunks: "all",
+          minChunks: 2,
+        },
+        css: {
+          test: /\.(css|sass|scss)$/,
+          name: "commons",
+          chunks: "all",
+          minChunks: 2,
+        },
+      },
     },
-    
   },
-  plugins:[
+  plugins: [
     new CleanWebpackPlugin(),
-  ]
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
 });

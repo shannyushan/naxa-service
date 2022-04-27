@@ -224,3 +224,44 @@ main {
     margin-bottom: 30px;
   }
 }
+
+
+.services-nav,.service-nav{
+  flex-wrap: wrap;
+}
+
+.nav-bar{
+  position: relative;
+  .small-Nav{
+    padding: 15px;
+    background-color:#ffab00;
+    position: absolute;
+    width: 380px;
+    height: 100vh;
+    top:-60px;
+    right: 0;
+    z-index: 999;
+    .topCross{
+      justify-content: flex-end;
+      cursor: pointer;
+
+      svg{
+        width: 42px;
+        height:42px;
+      }
+    }
+    li{
+      list-style-type: none;
+      padding-top: 1.2em;
+      margin-top: 10px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      a:hover{
+        color: #001acb;
+      }
+    }
+
+  }
+}

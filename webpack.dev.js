@@ -4,12 +4,12 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   mode: "development",
   devServer: {
-    static: path.join(__dirname, "public/"),
+    static: path.join(__dirname, "dist/"),
     port: 3000,
     hot: true,
     compress: true,

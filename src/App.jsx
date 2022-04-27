@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
 import { getServiceFetch } from "./serviceReducer";
+
 const parse =  require("html-react-parser");
 import serviceimg from "./assets/serviceicon.svg";
 import banner from "./assets/banner.jpg";
@@ -43,7 +44,7 @@ function App() {
       <header>
         {/* <div className="banner" style={bac}></div> */}
         <div className="banner" style={{position:"relative"}}>
-          <img src={banner} height="100%" style={{objectFit:"cover", position:"absolute", right:"0"}}/>
+          <img src={banner} alt="banner" height="100%" style={{objectFit:"cover", position:"absolute", right:"0"}}/>
         </div>
         <div className="container header-text">
           <div className="text-wrapper">
