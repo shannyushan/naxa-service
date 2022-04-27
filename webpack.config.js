@@ -15,7 +15,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(png|jpg|jpeg|svg)$/, use: ["file-loader"] },
+      { test: /\.(png|jpg|jpeg|svg)$/, use: ["url-loader"] },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -42,7 +42,7 @@ module.exports = {
     static: path.join(__dirname, "public/"),
     port: 3000,
     hot: true,
-    compress: true,
+    // compress: true,
   },
   //   devtool: "inline-source-map",
   devtool: "cheap-source-map",
