@@ -1,5 +1,4 @@
 @use "util";
-@use "variables";
 @use "media";
 
 body {
@@ -20,42 +19,41 @@ body {
 .topbar {
   padding: 7px 10px;
   background: #ffdc1c;
-  font-size: 0.785rem;
+  font-size: 0.985rem;
   line-height: 1.5;
-  span{
+  font-weight: 500;
+  span {
     transition: all ease-in-out 0.7s;
     cursor: pointer;
     text-decoration: underline;
   }
-  span:hover{
-    font-size: 0.82rem;
-    
+  span:hover {
+    font-size: 1.04rem;
   }
 }
 
 .banner {
   width: 100%;
-  min-height: 620px;
+  min-height: 580px;
   background-image: url("./../assets/banner.jpg");
 }
 
 nav {
-
-  .navigation{
+  .navigation {
     align-items: center;
-    li{
+    li {
       cursor: pointer;
       align-items: center;
       justify-content: center;
       list-style-type: none;
-      a{
+      a {
         text-decoration: none;
         color: #333132;
         font-size: 1.18em;
         font-weight: 400;
-        padding:0.8em 1.5em;
+        padding: 0.8em 1.5em;
       }
-      a:hover{
+      a:hover {
         color: #001acb;
       }
     }
@@ -66,7 +64,7 @@ header {
   position: relative;
   width: 100%;
   max-height: 620px;
-  height: 620px;
+  height: 540px;
   .banner {
     position: absolute;
     z-index: -10;
@@ -85,11 +83,10 @@ header {
     bottom: 50%;
     left: 0;
     right: 0;
-    transform: translateY(5%);
+    transform: translateY(50%);
 
     .text-wrapper {
       max-width: 80%;
-      
 
       .header-text_highlight {
         font-weight: 500;
@@ -129,21 +126,20 @@ header {
   }
 }
 
-main{
-  .ml{
+main {
+  .ml {
     position: relative;
   }
 }
 
-
 main {
   background-color: #f4f4f4;
-  
-  .service-container {
-    padding:130px 0;
 
-    .g-reverse{
-      grid-template-areas: "s-info s-photo"!important;
+  .service-container {
+    padding: 130px 0;
+
+    .g-reverse {
+      grid-template-areas: "s-info s-photo" !important;
     }
 
     .service-gridBox {
@@ -151,15 +147,15 @@ main {
       grid-template-columns: 1fr 1fr;
       grid-template-areas: "s-photo s-info";
 
-      .s-photo{
+      .s-photo {
         grid-area: s-photo;
-        img{
+        img {
           max-width: 50%;
           height: 100%;
           margin: 0 auto;
         }
       }
-      .s-info{
+      .s-info {
         grid-area: s-info;
       }
       .service-title {
@@ -190,8 +186,7 @@ main {
   }
 }
 
-
-.letstalk{
+.letstalk {
   color: white;
   margin-top: -100px;
   min-height: 280px;
@@ -199,14 +194,16 @@ main {
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
-  background: transparent linear-gradient(59deg,#05f,#05f 20%,#001acb 70%,#001acb 97%,#001acb) 0 0 no-repeat padding-box;
+  background: transparent
+    linear-gradient(59deg, #05f, #05f 20%, #001acb 70%, #001acb 97%, #001acb) 0
+    0 no-repeat padding-box;
 
-  .collab-container{
+  .collab-container {
     width: 100%;
     margin: 0 auto;
     max-width: 500px;
   }
-  .letstalk-title{
+  .letstalk-title {
     font-size: 2.125rem;
     font-weight: 600;
     color: white;

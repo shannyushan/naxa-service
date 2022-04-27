@@ -4,7 +4,7 @@ import Logo from "./../../assets/logo.png";
 function Navigation() {
   return (
     <nav className="container nav-bar flex-row space-between w100">
-        <img src={Logo} alt="Naxa Logo" />
+        <img src={Logo} alt="Naxa Logo" width="120px" height="35px" />
         <ul className="navigation flex-row space-evenly">
           <li className="flex">
             <a href="#">Services</a>

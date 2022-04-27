@@ -2,9 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
 import { getServiceFetch } from "./serviceReducer";
-
 const parse =  require("html-react-parser");
-
+import serviceimg from "./assets/serviceicon.svg";
 function App() {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services.services);
@@ -82,7 +81,7 @@ function App() {
               <img src={service.photo} alt={service.title} />
             </div>
             <div className="flex-column s-info">
-              <img src={service.icon} alt="service icon" className="service-icon" />
+              <img src={serviceimg} alt="service icon" className="service-icon" />
               <h3 className="service-title">{service.title}</h3>
               <div className="service-desc1">{parse(service.description1)}</div>
               <div className="card card-text">{parse(service.description2)}</div>

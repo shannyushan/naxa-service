@@ -1,13 +1,11 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-let webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const isDevelopment = true;
 module.exports = {
   entry: "/src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
   },
   resolve: {
@@ -15,12 +13,19 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(png|jpg|jpeg|svg)$/, use: ["url-loader"] },
+      { test: /\.(png|jpg|jpeg|svg)$/, use: [
+        {
+          options: {
+            name: "[name].[ext]",
+            outputPath: "img/",
+            publicPath:"img/"
+          },
+          loader: "file-loader"
+        }
+      ] },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        // include: path.resolve(__dirname, "src"),
-
         use: {
           loader: "babel-loader",
         },
@@ -33,8 +38,8 @@ module.exports = {
       template: "./public/index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name].[hash].css",
-      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+      filename: "[name].[hash].css",
+      chunkFilename: "[id].[hash].css",
     }),
   ],
   mode: "development",
@@ -42,8 +47,7 @@ module.exports = {
     static: path.join(__dirname, "public/"),
     port: 3000,
     hot: true,
-    // compress: true,
+    compress: true,
   },
-  //   devtool: "inline-source-map",
   devtool: "cheap-source-map",
 };
